@@ -1,0 +1,11 @@
+.catalog-container {
+  display: flex;
+  flex-direction: column;
+  padding: 2.5% 10%;
+}
+
+.filter {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}

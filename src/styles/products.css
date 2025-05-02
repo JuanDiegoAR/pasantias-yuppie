@@ -1,0 +1,39 @@
+.product-section {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  margin: 20px 0;
+  width: 100%;
+  gap: 40px;
+}
+
+.product-card {
+  place-self: center;
+  width: 200px;
+  max-height: 350px;
+  padding: 20px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  transition: 700ms;
+
+  p {
+    margin: 0px;
+  }
+}
+
+.product-card:hover {
+  transform: scale(105%);
+  cursor: pointer;
+}
+
+.product-title {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.product-img {
+  margin: 10% 0 10%;
+  width: 100px;
+  height: 100px;
+}
