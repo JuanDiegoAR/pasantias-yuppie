@@ -1,7 +1,7 @@
 export const Rate = ({ count, rate }: { count: number; rate: number }) => {
   const completes = Math.trunc(rate);
-  const partial = rate % 1 > 0.2 && rate % 1 <= 0.6;
-  const complete = rate % 1 >= 0.7;
+  const partial = rate % 1 > 0.29 && rate % 1 < 0.71;
+  const complete = rate % 1 > 0.79;
 
   const show = [];
   for (let i = 0; i < completes; i++) {
