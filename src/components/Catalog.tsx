@@ -7,6 +7,11 @@ const categories: string[] = await getCategories();
 
 export const Catalog = () => {
   const [category, setCategory] = useState("");
+  const [search, setSearch] = useState("");
+
+  const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
+    setSearch(event.target.value);
+  };
 
   const handleChangeSelect = (event: React.ChangeEvent<HTMLSelectElement>) => {
     setCategory(event.target.value);
@@ -16,8 +21,19 @@ export const Catalog = () => {
     <section className="catalog-container">
       <h2 className="title">Catálogo</h2>
       <div className="filter">
-        <input type="text" id="productName" placeholder="Search..." />
-        <select name="categories" id="categories" onChange={handleChangeSelect}>
+        <input
+          className="filter-field"
+          type="text"
+          id="productName"
+          placeholder="Search..."
+          onChange={handleChangeInput}
+        />
+        <select
+          className="filter-field"
+          name="categories"
+          id="categories"
+          onChange={handleChangeSelect}
+        >
           <option value="all">All</option>
           {categories.map((category: string) => {
             return (
@@ -28,7 +44,7 @@ export const Catalog = () => {
           })}
         </select>
       </div>
-      <Products category={category} />
+      <Products category={category} search={search} />
     </section>
   );
 };

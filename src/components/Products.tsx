@@ -5,13 +5,22 @@ import { getCategoryProducts } from "../utils/getCategoryProducts";
 import "../styles/products.css";
 import { Rate } from "./Rate";
 
+//Lamada a la utilidad que nos devuelve los productos
 const allProducts: Product[] = await getProducts();
 
-export const Products = ({ category }: { category: string }) => {
+export const Products = ({
+  category,
+  search,
+}: {
+  category: string;
+  search: string;
+}) => {
   const [products, setProducts] = useState(allProducts);
+  const [searchedProducts, setSearchedProducts] = useState(products);
 
+  //Actualizar la lista de productos según la categoría
   useEffect(() => {
-    const setNewProducts = async (category: string) => {
+    const getProductsInCategory = async (category: string) => {
       try {
         console.log(category);
         const newProducts: Product[] = await getCategoryProducts(category);
@@ -23,13 +32,26 @@ export const Products = ({ category }: { category: string }) => {
       }
     };
     if (category) {
-      setNewProducts(category);
+      getProductsInCategory(category);
     }
   }, [category]);
 
+  //Actualizar los productos según el la search bar, tras haber seleccionado(o no), una categoría
+  useEffect(() => {
+    if (!search) {
+      setSearchedProducts(products);
+    } else {
+      setSearchedProducts(
+        products.filter((product) =>
+          product.title.toLocaleLowerCase().includes(search.toLocaleLowerCase())
+        )
+      );
+    }
+  }, [search, products]);
+
   return (
     <div className="product-section">
-      {products.map((p: Product) => {
+      {searchedProducts.map((p: Product) => {
         return (
           <div className="product-card" key={p.title}>
             <p className="product-title">{p.title}</p>
