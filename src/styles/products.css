@@ -14,7 +14,7 @@
   background-color: white;
   border-radius: 10px;
   color: black;
-  transition: 700ms;
+  transition: 250ms;
 
   p {
     margin: 0px;
@@ -22,8 +22,9 @@
 }
 
 .product-card:hover {
-  transform: scale(105%);
+  transform: scale(102.5%);
   cursor: pointer;
+  box-shadow: 0 0 5px 3px gray;
 }
 
 .product-title {

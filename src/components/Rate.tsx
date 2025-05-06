@@ -1,4 +1,4 @@
-export const Rate = ({ count, rate }: { count: number; rate: number }) => {
+export const Rate = ({ rate }: { rate: number }) => {
   const completes = Math.trunc(rate);
   const partial = rate % 1 > 0.29 && rate % 1 < 0.71;
   const complete = rate % 1 > 0.79;
@@ -19,10 +19,7 @@ export const Rate = ({ count, rate }: { count: number; rate: number }) => {
 
   return (
     <>
-      <p>{result}</p>
-      <p>
-        {rate} ({count})
-      </p>
+      <span>{result}</span>
     </>
   );
 };

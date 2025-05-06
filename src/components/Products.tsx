@@ -1,12 +1,13 @@
 import { useEffect, useState } from "react";
 import { Product } from "../interfaces";
-import { getProducts } from "../utils/getProducts";
+import { getAllProducts } from "../utils/getAllProducts";
 import { getCategoryProducts } from "../utils/getCategoryProducts";
 import "../styles/products.css";
 import { Rate } from "./Rate";
+import { Link } from "react-router-dom";
 
 //Lamada a la utilidad que nos devuelve los productos
-const allProducts: Product[] = await getProducts();
+const allProducts: Product[] = await getAllProducts();
 
 export const Products = ({
   category,
@@ -53,14 +54,19 @@ export const Products = ({
     <div className="product-section">
       {searchedProducts.map((p: Product) => {
         return (
-          <div className="product-card" key={p.title}>
-            <p className="product-title">{p.title}</p>
-            <img className="product-img" src={p.image} alt={p.title} />
-            <p>${p.price}</p>
-            <div>
-              <Rate rate={p.rating.rate} count={p.rating.count} />
+          <Link key={p.id} to={`/catalog/${p.id}`}>
+            <div className="product-card">
+              <p className="product-title">{p.title}</p>
+              <img className="product-img" src={p.image} alt={p.title} />
+              <p>${p.price}</p>
+              <div>
+                <Rate rate={p.rating.rate} />
+                <p>
+                  {p.rating.rate} ({p.rating.count})
+                </p>
+              </div>
             </div>
-          </div>
+          </Link>
         );
       })}
     </div>
