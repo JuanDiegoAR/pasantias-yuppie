@@ -17,6 +17,13 @@
 
 .filter input {
   width: 123px;
+  background-color: #3b3b3b;
+  border: 1.5px solid rgb(118, 118, 118);
+  border-radius: 8px;
+}
+
+.filter select {
+  background-color: #3b3b3b;
 }
 
 .filter-field {

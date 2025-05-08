@@ -10,6 +10,10 @@
     cursor: pointer;
     color: white;
     transition: 200ms;
+
+    @media (max-width: 600px) {
+      font-size: 28px;
+    }
   }
 
   h1:hover {
@@ -30,6 +34,12 @@
 
     a:hover {
       color: rgb(212, 212, 212);
+    }
+  }
+
+  @media (max-width: 600px) {
+    ul {
+      margin: 8px 12px;
     }
   }
 }

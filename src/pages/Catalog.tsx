@@ -1,6 +1,6 @@
 import { useState } from "react";
-import { Products } from "./Products";
-import { getCategories } from "../utils/getCategories";
+import { Products } from "../components/Products";
+import { getCategories } from "../logic/getCategories";
 import "../styles/catalog.css";
 
 const categories: string[] = await getCategories();

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Product } from "../interfaces";
-import { getAllProducts } from "../utils/getAllProducts";
-import { getCategoryProducts } from "../utils/getCategoryProducts";
+import { getAllProducts } from "../logic/getAllProducts";
+import { getCategoryProducts } from "../logic/getCategoryProducts";
 import "../styles/products.css";
 import { Rate } from "./Rate";
 import { Link } from "react-router-dom";
@@ -54,7 +54,18 @@ export const Products = ({
     <div className="product-section">
       {searchedProducts.map((p: Product) => {
         return (
-          <Link key={p.id} to={`/catalog/${p.id}`}>
+          <Link
+            key={p.id}
+            to={`/catalog/${p.id}`}
+            state={[
+              p.title,
+              p.rating.count,
+              p.rating.rate,
+              p.image,
+              p.price,
+              p.description,
+            ]}
+          >
             <div className="product-card">
               <p className="product-title">{p.title}</p>
               <img className="product-img" src={p.image} alt={p.title} />
