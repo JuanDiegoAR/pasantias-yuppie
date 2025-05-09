@@ -8,7 +8,7 @@ import { Home } from "./pages/Home";
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename="/pasantias-yuppie">
       <NavBar />
       <Routes>
         <Route path="/" element={<Home />} />
