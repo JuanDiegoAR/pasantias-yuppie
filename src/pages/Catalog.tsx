@@ -1,13 +1,21 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Products } from "../components/Products";
 import { getCategories } from "../logic/getCategories";
 import "../styles/catalog.css";
 
-const categories: string[] = await getCategories();
-
 export const Catalog = () => {
+  const [categories, setCategories] = useState<string[]>([]);
   const [category, setCategory] = useState("");
   const [search, setSearch] = useState("");
+
+  useEffect(() => {
+    const loadCategories = async () => {
+      const resultCategories: string[] = await getCategories();
+      setCategories(resultCategories);
+    };
+
+    loadCategories();
+  }, []);
 
   const handleChangeInput = (event: React.ChangeEvent<HTMLInputElement>) => {
     setSearch(event.target.value);

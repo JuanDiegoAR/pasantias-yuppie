@@ -20,6 +20,7 @@ export const Contact = () => {
       <form
         onSubmit={handleSubmit((data) => {
           console.log(data);
+          alert("Congrats! your contact data has been sent");
         })}
         className="contact-form"
       >

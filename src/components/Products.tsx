@@ -6,8 +6,6 @@ import "../styles/products.css";
 import { Rate } from "./Rate";
 import { Link } from "react-router-dom";
 
-const allProducts: Product[] = await getAllProducts();
-
 export const Products = ({
   category,
   search,
@@ -15,8 +13,17 @@ export const Products = ({
   category: string;
   search: string;
 }) => {
-  const [products, setProducts] = useState(allProducts);
+  const [products, setProducts] = useState<Product[]>([]);
   const [searchedProducts, setSearchedProducts] = useState(products);
+
+  useEffect(() => {
+    const loadProducts = async () => {
+      const allProducts: Product[] = await getAllProducts();
+      setProducts(allProducts);
+    };
+
+    loadProducts();
+  }, []);
 
   //Update products by category
   useEffect(() => {
