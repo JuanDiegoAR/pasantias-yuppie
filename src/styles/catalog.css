@@ -1,6 +1,4 @@
 .catalog-container {
-  display: flex;
-  flex-direction: column;
   padding: 5px 10%;
 }
 
@@ -16,6 +14,7 @@
 }
 
 .filter input {
+  color: white;
   width: 123px;
   background-color: #3b3b3b;
   border: 1.5px solid rgb(118, 118, 118);
@@ -23,6 +22,7 @@
 }
 
 .filter select {
+  color: white;
   background-color: #3b3b3b;
 }
 

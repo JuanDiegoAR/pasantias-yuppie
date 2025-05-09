@@ -2,25 +2,34 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 5px 10%;
+
+  @media (max-width: 600px) {
+    padding: 5px 6%;
+  }
 }
 
 .contact-form {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
   padding: 20px;
   border: 3px solid gray;
   border-radius: 25px;
   width: 70%;
   gap: 30px;
+
+  @media (max-width: 900px) {
+    width: 100%;
+  }
+
+  @media (max-width: 600px) {
+    width: 85%;
+  }
 }
 
-.field-form {
+.row-field-form {
   display: flex;
-  flex-direction: row;
   width: 100%;
   justify-content: space-evenly;
 
@@ -30,7 +39,7 @@
     flex-direction: column;
     align-items: start;
     gap: 4px;
-    position: relative;
+
     input {
       width: 97%;
       height: 35px;
@@ -49,10 +58,7 @@
   text-align: left;
   gap: 4px;
 
-  .spanError {
-    margin-left: 7.2%;
-  }
-
+  .spanError,
   label {
     margin-left: 7.2%;
   }
@@ -61,8 +67,6 @@
     margin: 0;
     padding: 0;
     display: flex;
-    flex-direction: row;
-    align-items: center;
     justify-content: space-evenly;
     border: none;
 
@@ -99,7 +103,24 @@
     border-radius: 6px;
     border: 1.5px solid rgb(118, 118, 118);
     background-color: #3b3b3b;
+    color: white;
   }
+
+  .span-error-textarea {
+    margin-left: 7.2%;
+
+    @media (max-width: 600px) {
+      margin-left: 4px;
+    }
+  }
+}
+
+.spanError {
+  color: rgb(251, 136, 136);
+  bottom: -25px;
+  font-size: 10px;
+  margin-bottom: -20px;
+  text-align: left;
 }
 
 button {
@@ -111,32 +132,12 @@ button {
 
 button:hover {
   background-color: #757575;
-  border-color: none;
-}
-
-.spanError {
-  color: red;
-  bottom: -25px;
-  font-size: 10px;
-  margin-bottom: -20px;
-  text-align: left;
-}
-
-@media (max-width: 900px) {
-  .contact-form {
-    width: 80%;
-  }
+  border-color: white;
 }
 
 @media (max-width: 600px) {
-  .contact-form {
-    width: 90%;
-  }
-
-  .field-form {
+  .row-field-form {
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
     gap: 30px;
 
     div {
@@ -149,10 +150,6 @@ button:hover {
       margin: 0;
     }
 
-    .spanError {
-      margin-left: 0;
-    }
-
     fieldset {
       justify-content: space-between;
       margin-right: 6px;
@@ -160,6 +157,10 @@ button:hover {
       .option {
         min-width: 82px;
       }
+    }
+
+    .spanError {
+      margin-left: 0;
     }
   }
 

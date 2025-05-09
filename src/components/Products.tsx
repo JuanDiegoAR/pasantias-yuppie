@@ -6,7 +6,6 @@ import "../styles/products.css";
 import { Rate } from "./Rate";
 import { Link } from "react-router-dom";
 
-//Lamada a la utilidad que nos devuelve los productos
 const allProducts: Product[] = await getAllProducts();
 
 export const Products = ({
@@ -19,13 +18,11 @@ export const Products = ({
   const [products, setProducts] = useState(allProducts);
   const [searchedProducts, setSearchedProducts] = useState(products);
 
-  //Actualizar la lista de productos según la categoría
+  //Update products by category
   useEffect(() => {
     const getProductsInCategory = async (category: string) => {
       try {
-        console.log(category);
         const newProducts: Product[] = await getCategoryProducts(category);
-        console.log(newProducts);
 
         setProducts(newProducts);
       } catch (error) {
@@ -37,7 +34,7 @@ export const Products = ({
     }
   }, [category]);
 
-  //Actualizar los productos según el la search bar, tras haber seleccionado(o no), una categoría
+  //Update products by searchBar content
   useEffect(() => {
     if (!search) {
       setSearchedProducts(products);

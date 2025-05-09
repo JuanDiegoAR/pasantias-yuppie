@@ -1,6 +1,12 @@
 export const getCategories = async () => {
-  const response = await fetch("https://fakestoreapi.com/products/categories");
-  const data = await response.json();
+  try {
+    const response = await fetch(
+      "https://fakestoreapi.com/products/categories"
+    );
+    const data = await response.json();
 
-  return data;
+    return data;
+  } catch (error) {
+    console.error("Error fetching data of categories: ", error);
+  }
 };

@@ -19,9 +19,9 @@ export const ProductDetails = () => {
         </div>
         <div className="product-text">
           <h1>{title}</h1>
-          <span>
+          <div className="rating-container">
             {rate} <Rate rate={rate} /> ({count})
-          </span>
+          </div>
           <span className="price">${price}</span>
           <p className="description">{description}</p>
         </div>

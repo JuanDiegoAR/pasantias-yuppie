@@ -23,14 +23,10 @@ export const Contact = () => {
         })}
         className="contact-form"
       >
-        <div className="field-form">
+        <div className="row-field-form">
           <div>
             <label htmlFor="name">Name</label>
-            <input
-              type="text"
-              id="name"
-              {...register("name", { required: true })}
-            />
+            <input type="text" id="name" {...register("name")} />
             {errors.name && (
               <span className="spanError">{errors.name.message}</span>
             )}
@@ -38,25 +34,17 @@ export const Contact = () => {
 
           <div>
             <label htmlFor="lastName">Lastname</label>
-            <input
-              type="text"
-              id="lastName"
-              {...register("lastName", { required: true })}
-            />
+            <input type="text" id="lastName" {...register("lastName")} />
             {errors.lastName && (
               <span className="spanError">{errors.lastName.message}</span>
             )}
           </div>
         </div>
 
-        <div className="field-form">
+        <div className="row-field-form">
           <div>
             <label htmlFor="age">Age</label>
-            <input
-              type="text"
-              id="age"
-              {...register("age", { required: true })}
-            />
+            <input type="text" id="age" {...register("age")} />
             {errors.age && (
               <span className="spanError">{errors.age.message}</span>
             )}
@@ -64,25 +52,17 @@ export const Contact = () => {
 
           <div>
             <label htmlFor="email">Email</label>
-            <input
-              type="email"
-              id="email"
-              {...register("email", { required: true })}
-            />
+            <input type="email" id="email" {...register("email")} />
             {errors.email && (
               <span className="spanError">{errors.email.message}</span>
             )}
           </div>
         </div>
 
-        <div className="field-form">
+        <div className="row-field-form">
           <div>
             <label htmlFor="country">Country</label>
-            <input
-              type="text"
-              id="country"
-              {...register("country", { required: true })}
-            />
+            <input type="text" id="country" {...register("country")} />
             {errors.country && (
               <span className="spanError">{errors.country.message}</span>
             )}
@@ -90,11 +70,7 @@ export const Contact = () => {
 
           <div>
             <label htmlFor="address">Address</label>
-            <input
-              type="text"
-              id="address"
-              {...register("address", { required: true })}
-            />
+            <input type="text" id="address" {...register("address")} />
             {errors.address && (
               <span className="spanError">{errors.address.message}</span>
             )}
@@ -110,7 +86,7 @@ export const Contact = () => {
                 type="radio"
                 id="male"
                 value="male"
-                {...register("gender", { required: true })}
+                {...register("gender")}
               />
             </div>
 
@@ -120,7 +96,7 @@ export const Contact = () => {
                 type="radio"
                 id="female"
                 value="female"
-                {...register("gender", { required: true })}
+                {...register("gender")}
               />
             </div>
 
@@ -130,7 +106,7 @@ export const Contact = () => {
                 type="radio"
                 id="other"
                 value="other"
-                {...register("gender", { required: true })}
+                {...register("gender")}
               />
             </div>
           </fieldset>
@@ -144,10 +120,12 @@ export const Contact = () => {
           <textarea
             id="message"
             className="field-text-form"
-            {...register("message", { required: true })}
+            {...register("message")}
           ></textarea>
           {errors.message && (
-            <span className="spanError">{errors.message.message}</span>
+            <span className="spanError span-error-textarea">
+              {errors.message.message}
+            </span>
           )}
         </div>
 

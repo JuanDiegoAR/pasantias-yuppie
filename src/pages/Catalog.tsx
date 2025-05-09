@@ -19,7 +19,7 @@ export const Catalog = () => {
 
   return (
     <section className="catalog-container">
-      <h2 className="title">Catalog</h2>
+      <h2>Catalog</h2>
       <div className="filter">
         <input
           className="filter-field"

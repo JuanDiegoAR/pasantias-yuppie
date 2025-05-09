@@ -6,7 +6,7 @@ export const NavBar = () => {
     <header>
       <nav className="navBar">
         <Link to="/">
-          <h1>FakeStore 🛍</h1>
+          <span>FakeStore 🛍</span>
         </Link>
         <ul>
           <li>

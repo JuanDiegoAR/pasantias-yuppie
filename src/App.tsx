@@ -3,7 +3,7 @@ import { Catalog } from "./pages/Catalog";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import { ProductDetails } from "./pages/ProductDetails";
 import { NavBar } from "./components/NavBar";
-import { Contact } from "./components/Contact";
+import { Contact } from "./pages/Contact";
 import { Home } from "./pages/Home";
 
 function App() {
